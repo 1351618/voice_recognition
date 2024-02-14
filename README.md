@@ -17,3 +17,5 @@
 <div>
   <img src="./161803.png" alt="start recognition" style="float: right; margin-left: 20px; border-radius: 10px;" width="375">
 </div>
+
+## I wish you good use of this code in your projects! 🚀
