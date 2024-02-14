@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Распознавание речи</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #272822;
+      }
+
+      .container {
+        display: flex;
+        max-width: 450px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        gap: 10px;
+      }
+
+      .result {
+        display: flex;
+        align-items: center;
+        position: relative;
+        flex-basis: 100%;
+        padding: 10px 25px;
+        font-size: 18px;
+        background-color: white;
+        border-radius: 30px;
+      }
+
+      .record-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 2px solid rgb(0, 123, 238);
+        background-color: rgb(203, 230, 255);
+        transition: background-color 0.3s, transform 0.3s;
+        cursor: pointer;
+      }
+
+      .record-btn:hover {
+        background-color: #9aceff;
+      }
+
+      .record-btn:active {
+        transform: scale(0.93);
+      }
+
+      .record-btn svg {
+        width: 30px;
+        height: 30px;
+        z-index: 3;
+      }
+
+      .record-btn svg path {
+        fill: rgb(0, 123, 238);
+      }
+
+      .record-btn.rec {
+        background-color: rgb(255, 0, 47);
+        border-color: rgb(255, 0, 47);
+      }
+
+      .record-btn.rec:hover {
+        background-color: rgb(255, 0, 47);
+        border-color: rgb(255, 0, 47);
+      }
+
+      .record-btn.rec svg path {
+        fill: white;
+      }
+
+      .record-btn.rec::before {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        background-color: rgb(255, 0, 47);
+        animation: pulse 1.5s linear infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="result" class="result"></div>
+      <button id="btn" class="record-btn">
+        <svg width="800px" height="800px" viewBox="-5 0 32 32">
+          <g transform="translate(-107.000000, -309.000000)" fill="#000000">
+            <path
+              d="M118,333 C121.866,333 125,329.866 125,326 L125,316 C125,312.134 121.866,309 118,309 C114.134,309 111,312.134 111,316 L111,326 C111,329.866 114.134,333 118,333 L118,333 Z M129,328 L127,328 C126.089,332.007 122.282,335 118,335 C113.718,335 109.911,332.007 109,328 L107,328 C107.883,332.799 112.063,336.51 117,336.955 L117,339 L116,339 C115.448,339 115,339.448 115,340 C115,340.553 115.448,341 116,341 L120,341 C120.552,341 121,340.553 121,340 C121,339.448 120.552,339 120,339 L119,339 L119,336.955 C123.937,336.51 128.117,332.799 129,328 L129,328 Z"
+              id="microphone"
+              sketch:type="MSShapeGroup"
+            ></path>
+          </g>
+        </svg>
+      </button>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
